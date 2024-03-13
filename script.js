@@ -1,4 +1,4 @@
-let currentPageUrl = 'https://swapi.dev/api/people/';
+let currentPageUrl = 'https://swapi.py4e.com/api/people/';
 
 window.onload = async () => {
     try {
@@ -29,7 +29,8 @@ async function loadCharacters(url) {
             //CRIANDO OS CARDS
             const card = document.createElement("div");
             card.style.backgroundImage = 
-            `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(/\D/g, "")}.jpg')`;
+            `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(/.*people\/.*?(\d+).*/, "$1")}.jpg')`;
+            
             card.className = "cards";
 
             const characterNameBG = document.createElement("div");
@@ -55,7 +56,7 @@ async function loadCharacters(url) {
                 //imagem do modal
                 const characterImage = document.createElement("div");
                 characterImage.style.backgroundImage = 
-                `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(/\D/g, "")}.jpg')`;
+                `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(/.*people\/.*?(\d+).*/, "$1")}.jpg')`;
                 characterImage.className = "character-image";   
                 
                 //criando os detalhes do modal, com SPAN
